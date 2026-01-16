@@ -1,33 +1,25 @@
-const words = [
-  "Shopify Websites",
-  "WordPress Websites",
-  "Custom-Coded Websites"
+const words=[
+"Shopify Websites",
+"WordPress Websites",
+"Custom-Coded Websites"
 ];
 
-let i = 0;
-let j = 0;
-let current = "";
-let isDeleting = false;
-const el = document.querySelector(".typing");
+let i=0,j=0,isDeleting=false;
+const el=document.querySelector(".typing");
 
-function loop() {
-  current = words[i];
+function animate(){
+const word=words[i];
+el.textContent=isDeleting
+? word.substring(0,--j)
+: word.substring(0,++j);
 
-  if (!isDeleting) {
-    el.textContent = current.substring(0, j++);
-    if (j === current.length + 1) {
-      isDeleting = true;
-      setTimeout(loop, 1500);
-      return;
-    }
-  } else {
-    el.textContent = current.substring(0, j--);
-    if (j === 0) {
-      isDeleting = false;
-      i = (i + 1) % words.length;
-    }
-  }
-  setTimeout(loop, isDeleting ? 60 : 100);
+if(!isDeleting && j===word.length){
+setTimeout(()=>isDeleting=true,1200);
 }
-
-loop();
+if(isDeleting && j===0){
+isDeleting=false;
+i=(i+1)%words.length;
+}
+setTimeout(animate,isDeleting?60:100);
+}
+animate();
