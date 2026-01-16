@@ -1,33 +1,33 @@
-const roles = [
-  "Shopify Partner",
-  "Shopify Developer",
-  "WordPress Developer",
-  "Custom Web Developer"
+const words = [
+  "Shopify Websites",
+  "WordPress Websites",
+  "Custom-Coded Websites"
 ];
 
-let roleIndex = 0;
-let charIndex = 0;
-const typingEl = document.querySelector(".typing");
+let i = 0;
+let j = 0;
+let current = "";
+let isDeleting = false;
+const el = document.querySelector(".typing");
 
-function typeRole() {
-  if (charIndex < roles[roleIndex].length) {
-    typingEl.textContent += roles[roleIndex].charAt(charIndex);
-    charIndex++;
-    setTimeout(typeRole, 100);
+function loop() {
+  current = words[i];
+
+  if (!isDeleting) {
+    el.textContent = current.substring(0, j++);
+    if (j === current.length + 1) {
+      isDeleting = true;
+      setTimeout(loop, 1500);
+      return;
+    }
   } else {
-    setTimeout(eraseRole, 1500);
+    el.textContent = current.substring(0, j--);
+    if (j === 0) {
+      isDeleting = false;
+      i = (i + 1) % words.length;
+    }
   }
+  setTimeout(loop, isDeleting ? 60 : 100);
 }
 
-function eraseRole() {
-  if (charIndex > 0) {
-    typingEl.textContent = roles[roleIndex].substring(0, charIndex - 1);
-    charIndex--;
-    setTimeout(eraseRole, 60);
-  } else {
-    roleIndex = (roleIndex + 1) % roles.length;
-    setTimeout(typeRole, 500);
-  }
-}
-
-typeRole();
+loop();
