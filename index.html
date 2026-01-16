@@ -3,67 +3,165 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Your Name | Portfolio</title>
+  <title>Jananika | Shopify Partner & Web Developer</title>
+
+  <meta name="description" content="Jananika is an official Shopify Partner building high-quality Shopify, WordPress, and custom-coded websites.">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
   <!-- Navbar -->
-  <nav>
+  <nav class="navbar">
     <h2 class="logo">Jananika</h2>
-    <ul>
+    <ul class="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
+      <li><a href="#build">What I Build</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- Home -->
+  <!-- Hero -->
   <section id="home" class="hero">
-    <h1>Hi, I’m <span>Jananika</span></h1>
-    <p>Shopify Developer • Web Designer • Freelancer</p>
-    <a href="#contact" class="btn">Hire Me</a>
+    <h1>
+      Hi, I’m <span>Jananika</span><br>
+      <span class="typing"></span>
+    </h1>
+    <p>
+      Official Shopify Partner building fast, clean, and conversion-focused
+      websites using code, Shopify, and WordPress.
+    </p>
+    <a href="#contact" class="btn">Start a Project</a>
   </section>
 
   <!-- About -->
   <section id="about" class="section">
     <h2>About Me</h2>
     <p>
-      I’m a passionate web developer specializing in Shopify development,
-      custom UI/UX, and modern responsive websites. I help brands grow
-      with clean design and conversion-focused development.
+      I’m a web developer and official Shopify Partner specializing in building
+      scalable, high-performance websites. I focus on clean code, modern design,
+      and business-driven development that helps brands grow online.
     </p>
   </section>
 
-  <!-- Services -->
-  <section id="services" class="section gray">
-    <h2>Services</h2>
+  <!-- Why Me -->
+  <section class="section light">
+    <h2>Why Work With Me</h2>
 
-    <div class="services">
+    <div class="grid">
       <div class="card">
-        <h3>Shopify Development</h3>
-        <p>Store setup, theme customization & custom features.</p>
+        <h3>Official Shopify Partner</h3>
+        <p>
+          Verified Shopify Partner following best practices for security,
+          scalability, and performance.
+        </p>
       </div>
 
       <div class="card">
-        <h3>UI / UX Design</h3>
-        <p>Clean, modern, and user-friendly interfaces.</p>
+        <h3>Code-First Development</h3>
+        <p>
+          Websites built with clean HTML, CSS, JavaScript, and Shopify Liquid —
+          not bloated builders.
+        </p>
       </div>
 
       <div class="card">
-        <h3>Custom Coding</h3>
-        <p>HTML, CSS, JavaScript & performance optimization.</p>
+        <h3>Business-Focused</h3>
+        <p>
+          Every website is designed to convert visitors into customers and
+          support long-term growth.
+        </p>
       </div>
     </div>
   </section>
 
+  <!-- What I Build -->
+  <section id="build" class="section">
+    <h2>What I Build</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Shopify Websites</h3>
+        <p>
+          Custom Shopify stores with Liquid development, custom sections,
+          app integrations, and optimized checkout.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>WordPress Websites</h3>
+        <p>
+          SEO-friendly WordPress websites with clean themes, fast loading,
+          and easy content management.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Custom-Coded Websites</h3>
+        <p>
+          Fully custom websites built using HTML, CSS, and JavaScript for
+          maximum speed and flexibility.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="section light">
+    <h2>Services</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Shopify Development</h3>
+        <p>
+          • Store setup<br>
+          • Theme customization<br>
+          • Shopify Liquid coding<br>
+          • Speed optimization
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>WordPress Development</h3>
+        <p>
+          • Custom themes<br>
+          • Elementor / Gutenberg<br>
+          • SEO structure<br>
+          • Maintenance & updates
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Custom Web Development</h3>
+        <p>
+          • HTML, CSS, JavaScript<br>
+          • Responsive layouts<br>
+          • Clean architecture<br>
+          • Performance focused
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <h2>Ready to Build Your Website?</h2>
+    <p>
+      Let’s create a professional, fast, and scalable website that represents
+      your brand and drives results.
+    </p>
+    <a href="#contact" class="btn">Hire Me</a>
+  </section>
+
   <!-- Contact -->
-  <section id="contact" class="section">
-    <h2>Contact Me</h2>
-    <p>Email: jananikajk@gmail.com</p>
-    <p>WhatsApp: +91 948 771 8584</p>
-    <p>Instagram: theunbound_jk</p>
+  <section id="contact" class="section light">
+    <h2>Contact</h2>
+    <p>Email: <strong>jananikajk@gmail.com</strong></p>
+    <p>WhatsApp: <strong>+91 94877 18584</strong></p>
+    <p>Instagram: <strong>@theunbound_jk</strong></p>
   </section>
 
   <!-- Footer -->
@@ -71,5 +169,6 @@
     <p>© 2026 Jananika. All rights reserved.</p>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
