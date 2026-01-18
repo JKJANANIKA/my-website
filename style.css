@@ -1,6 +1,5 @@
 :root{
 --black:#000;
---white:#fff;
 --gray:#6b7280;
 --border:#e5e7eb;
 }
@@ -17,14 +16,13 @@ line-height:1.7;
 
 /* NAV */
 .nav{
-position:sticky;
-top:0;
-background:rgba(255,255,255,.95);
-border-bottom:1px solid var(--border);
-padding:20px 60px;
 display:flex;
 justify-content:space-between;
-z-index:100;
+padding:20px 60px;
+border-bottom:1px solid var(--border);
+position:sticky;
+top:0;
+background:#fff;
 }
 
 .nav ul{
@@ -58,6 +56,7 @@ margin:20px 0 35px;
 color:var(--gray);
 }
 
+/* BUTTON */
 .btn{
 border:2px solid #000;
 padding:14px 32px;
@@ -71,7 +70,7 @@ background:#000;
 color:#fff;
 }
 
-/* SECTIONS */
+/* SECTION */
 .section{
 max-width:1100px;
 margin:auto;
@@ -96,7 +95,7 @@ margin-top:40px;
 .card,.price-card{
 border:1px solid var(--border);
 padding:35px;
-transition:.4s;
+transition:.3s;
 }
 
 .card:hover,.price-card:hover{
@@ -105,24 +104,6 @@ transform:translateY(-8px);
 
 .highlight{
 border:2px solid #000;
-}
-
-/* REVIEWS */
-.reviews{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
-}
-
-.review{
-border:1px solid var(--border);
-padding:30px;
-font-style:italic;
-}
-
-.review h4{
-margin-top:15px;
-font-style:normal;
 }
 
 /* FOOTER */
