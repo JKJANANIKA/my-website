@@ -1,10 +1,16 @@
-/* Scroll reveal */
-const sections=document.querySelectorAll(".section");
-window.addEventListener("scroll",()=>{
-sections.forEach(sec=>{
-const top=sec.getBoundingClientRect().top;
-if(top<window.innerHeight-100){
-sec.classList.add("show");
-}
-});
+// Smooth section reveal using IntersectionObserver
+const observer = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.15 }
+);
+
+document.querySelectorAll(".section").forEach(section => {
+  observer.observe(section);
 });
