@@ -3,186 +3,153 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jananika — Web Design & Shopify Partner</title>
+<title>Jananika | Web Developer & Shopify Partner</title>
 
 <style>
-/* ================= ROOT ================= */
+/* ================= ROOT & RESET ================= */
 :root{
-  --bg:#000;
-  --text:#fff;
-  --muted:#b3b3b3;
-  --border:#1f1f1f;
-  --card:#0b0b0b;
+  --bg:#ffffff;
+  --text:#000000;
+  --muted:#666666;
+  --border:#eaeaea;
+  --accent:#000000;
   --transition:0.4s cubic-bezier(.4,0,.2,1);
 }
 
-/* ================= RESET ================= */
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
 body{
   font-family:Inter,system-ui,sans-serif;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(255,255,255,.06), transparent 40%),
-    radial-gradient(circle at 80% 80%, rgba(255,255,255,.05), transparent 40%),
-    var(--bg);
+  background:var(--bg);
   color:var(--text);
   line-height:1.6;
-  overflow-x:hidden;
 }
+a{text-decoration:none;color:inherit;}
+ul{list-style:none;}
 
 /* ================= NAV ================= */
 nav{
-  position:fixed;
+  position:sticky;
   top:0;
-  width:100%;
+  z-index:1000;
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:18px 60px;
-  background:rgba(0,0,0,.85);
+  background:rgba(255,255,255,.95);
   backdrop-filter:blur(8px);
   border-bottom:1px solid var(--border);
-  z-index:1000;
 }
-
-nav h1{
-  font-size:1.2rem;
-  font-weight:700;
+nav h1{font-size:1.2rem;}
+nav ul{display:flex;gap:28px;}
+nav a{font-weight:500;position:relative;}
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0;
+  height:2px;
+  background:var(--accent);
+  transition:var(--transition);
 }
-
-nav ul{
-  list-style:none;
-  display:flex;
-  gap:28px;
-}
-
-nav a{
-  text-decoration:none;
-  color:var(--text);
-  font-weight:500;
-}
+nav a:hover::after{width:100%;}
 
 /* ================= HERO ================= */
 .hero{
-  min-height:100vh;
-  display:grid;
-  place-items:center;
+  padding:140px 20px;
   text-align:center;
-  padding:120px 20px;
 }
-
 .hero h2{
   font-size:clamp(2.4rem,6vw,3.8rem);
-  max-width:900px;
 }
-
-.hero span{
-  border-bottom:4px solid white;
-}
-
+.hero span{border-bottom:4px solid var(--accent);}
 .hero p{
-  margin:20px 0 30px;
+  margin:22px 0 34px;
   color:var(--muted);
   font-size:1.1rem;
 }
-
 .btn{
   padding:14px 36px;
-  border:1px solid white;
-  color:white;
-  text-decoration:none;
+  border:2px solid var(--accent);
   font-weight:600;
   transition:var(--transition);
 }
-
 .btn:hover{
-  background:white;
-  color:black;
+  background:var(--accent);
+  color:#fff;
 }
 
 /* ================= SECTIONS ================= */
-section{
-  padding:110px clamp(20px,6vw,90px);
+.section{
+  padding:110px 60px;
   max-width:1200px;
   margin:auto;
   opacity:0;
   transform:translateY(40px);
-  transition:1s;
+  transition:1s cubic-bezier(.4,0,.2,1);
 }
-
-section.show{
+.section.show{
   opacity:1;
   transform:none;
 }
-
-section h3{
-  font-size:2.3rem;
-  margin-bottom:35px;
+.section h2{
+  font-size:2.4rem;
+  margin-bottom:30px;
+  text-align:center;
 }
 
 /* ================= GRID ================= */
 .grid{
   display:grid;
-  gap:30px;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:28px;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
 }
 
-/* ================= CARD ================= */
+/* ================= CARDS ================= */
 .card{
-  background:var(--card);
   border:1px solid var(--border);
-  padding:34px;
-  border-radius:14px;
+  padding:32px;
+  border-radius:12px;
   transition:var(--transition);
 }
-
 .card:hover{
   transform:translateY(-12px);
-  box-shadow:0 30px 60px rgba(255,255,255,.08);
-}
-
-/* ================= SERVICES ================= */
-.service:hover{
-  background:white;
-  color:black;
+  box-shadow:0 25px 45px rgba(0,0,0,0.08);
 }
 
 /* ================= VISUAL CODE ================= */
 .visual{
   display:grid;
+  grid-template-columns:1fr 1fr;
   gap:50px;
   align-items:center;
-  grid-template-columns:1fr 1fr;
 }
-
 .screen{
   border:1px solid var(--border);
   border-radius:14px;
-  height:280px;
-  overflow:hidden;
+  height:260px;
   position:relative;
+  overflow:hidden;
 }
-
 .screen::before{
   content:"";
   height:36px;
   display:block;
-  background:#111;
+  background:#f5f5f5;
 }
-
 .code{
   position:absolute;
   inset:60px 20px 20px;
   background:linear-gradient(
     to bottom,
-    rgba(255,255,255,.18) 12%,
+    rgba(0,0,0,.15) 12%,
     transparent 12%,
     transparent 22%
   );
   background-size:100% 32px;
-  animation:codeMove 1.8s linear infinite;
+  animation:codeMove 1.6s linear infinite;
 }
-
 @keyframes codeMove{
   to{background-position:0 64px}
 }
@@ -190,64 +157,46 @@ section h3{
 /* ================= FOOTER ================= */
 footer{
   border-top:1px solid var(--border);
-  padding:40px;
+  padding:90px 60px 40px;
+  position:relative;
+  overflow:hidden;
+}
+footer::before{
+  content:"";
+  position:absolute;
+  inset:-30%;
+  background:radial-gradient(circle, rgba(0,0,0,.05), transparent 40%);
+  animation:footerGlow 18s linear infinite;
+}
+@keyframes footerGlow{
+  0%{transform:translate(0,0)}
+  50%{transform:translate(120px,80px)}
+  100%{transform:translate(0,0)}
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:60px;
+  position:relative;
+  z-index:2;
+}
+.footer-bottom{
+  margin-top:60px;
+  padding-top:30px;
+  border-top:1px solid var(--border);
   text-align:center;
-  font-size:.9rem;
   color:var(--muted);
+  font-size:.9rem;
 }
 
-/* ================= MOBILE ================= */
+/* ================= RESPONSIVE ================= */
 @media(max-width:900px){
-  nav{padding:15px 30px}
-  .visual{grid-template-columns:1fr}
+  nav{padding:15px 30px;}
+  .section{padding:90px 30px;}
+  .visual{grid-template-columns:1fr;}
 }
 </style>
 </head>
-<footer class="premium-footer">
-  <div class="footer-grid">
-
-    <div class="footer-brand">
-      <h2>Jananika</h2>
-      <p>
-        Web Developer • Web Designer<br>
-        Official Shopify Partner
-      </p>
-    </div>
-
-    <div class="footer-links">
-      <h4>Services</h4>
-      <ul>
-        <li>Web Development</li>
-        <li>Web Designing</li>
-        <li>Shopify Development</li>
-        <li>WordPress Development</li>
-        <li>Custom Code Websites</li>
-      </ul>
-    </div>
-
-    <div class="footer-links">
-      <h4>Expertise</h4>
-      <ul>
-        <li>UI / UX Design</li>
-        <li>AI Driven Websites</li>
-        <li>Ecommerce Solutions</li>
-        <li>Performance Optimization</li>
-      </ul>
-    </div>
-
-    <div class="footer-contact">
-      <h4>Contact</h4>
-      <p>Email: jananikajk@gmail.com</p>
-      <p>WhatsApp: +91 94877 18584</p>
-      <p>India</p>
-    </div>
-
-  </div>
-
-  <div class="footer-bottom">
-    © 2026 Jananika — Building high-performance digital experiences.
-  </div>
-</footer>
 
 <body>
 
@@ -262,101 +211,104 @@ footer{
 </nav>
 
 <!-- HERO -->
-<div class="hero" id="home">
-  <h2>I Build <span>High-Performance Websites</span></h2>
-  <p>Official Shopify Partner • Web Designer • Developer</p>
+<section class="hero" id="home">
+  <h2>I Build <span>Modern Websites</span></h2>
+  <p>Web Developer • Shopify Partner • WordPress Expert</p>
   <a href="#contact" class="btn">Start a Project</a>
-</div>
-
-<!-- PROCESS -->
-<section>
-  <h3>How I Work</h3>
-  <div class="grid">
-    <div class="card">AI Strategy & Planning</div>
-    <div class="card">UI / UX Design</div>
-    <div class="card">Clean Development</div>
-    <div class="card">Launch & Optimization</div>
-  </div>
-</section>
-
-<!-- VISUAL -->
-<section class="visual">
-  <div class="screen"><div class="code"></div></div>
-  <div>
-    <h3>Design. Code. Scale.</h3>
-    <p>
-      Every website is engineered using modern UI/UX systems,
-      AI-assisted workflows, and performance-first development.
-    </p>
-  </div>
 </section>
 
 <!-- SERVICES -->
-<section id="services">
-  <h3>Services & Pricing</h3>
+<section class="section" id="services">
+  <h2>Services</h2>
   <div class="grid">
-    <div class="card service">
-      <h4>Shopify Development</h4>
-      <p>Custom themes, Liquid coding, ecommerce optimization.</p>
+    <div class="card">
+      <h3>Shopify Development</h3>
+      <p>Official Shopify Partner. Custom themes, Liquid coding, ecommerce optimization.</p>
       <strong>₹25,000 – ₹2,00,000+</strong>
     </div>
-    <div class="card service">
-      <h4>WordPress Development</h4>
-      <p>Business sites, portfolios, SEO-ready builds.</p>
+    <div class="card">
+      <h3>WordPress Development</h3>
+      <p>Business websites, portfolios, SEO-ready builds.</p>
       <strong>₹15,000 – ₹1,20,000+</strong>
     </div>
-    <div class="card service">
-      <h4>Custom Code Websites</h4>
-      <p>HTML, CSS, JS — ultra-fast & scalable.</p>
+    <div class="card">
+      <h3>Custom Code Websites</h3>
+      <p>HTML, CSS, JavaScript – fast, scalable and clean.</p>
       <strong>₹10,000 – ₹1,50,000+</strong>
     </div>
   </div>
 </section>
 
+<!-- VISUAL -->
+<section class="section visual">
+  <div class="screen"><div class="code"></div></div>
+  <div>
+    <h2>Design • Code • Scale</h2>
+    <p>I build performance-focused websites using modern UI/UX and clean development.</p>
+  </div>
+</section>
+
 <!-- REVIEWS -->
-<section>
-  <h3>Client Reviews</h3>
+<section class="section">
+  <h2>Client Reviews</h2>
   <div class="grid">
-    <div class="card">“Premium design & fast delivery.”<br><strong>Startup Founder</strong></div>
-    <div class="card">“Shopify conversion improved.”<br><strong>Ecommerce Brand</strong></div>
-    <div class="card">“Clean UI & strong code.”<br><strong>Business Owner</strong></div>
+    <div class="card"><p>“Clean design & fast delivery.”</p><strong>Startup Founder</strong></div>
+    <div class="card"><p>“Conversion improved after redesign.”</p><strong>Ecommerce Brand</strong></div>
+    <div class="card"><p>“Professional & reliable.”</p><strong>Business Owner</strong></div>
   </div>
 </section>
 
 <!-- ABOUT -->
-<section id="about">
-  <h3>About Me</h3>
+<section class="section" id="about">
+  <h2>About Me</h2>
   <p>
-    I’m Jananika, an official Shopify Partner and web developer.
-    I build clean, modern and scalable websites using Shopify,
-    WordPress and custom code.
+    I’m Jananika, a web developer and official Shopify Partner.
+    I create high-quality websites using Shopify, WordPress and custom code.
   </p>
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
-  <h3>Contact</h3>
+<section class="section" id="contact">
+  <h2>Contact</h2>
   <p>Email: jananikajk@gmail.com</p>
   <p>WhatsApp: +91 94877 18584</p>
   <p>Instagram: @theunbound_jk</p>
 </section>
 
 <footer>
-  © 2026 Jananika. All rights reserved.
+  <div class="footer-grid">
+    <div>
+      <h3>Jananika</h3>
+      <p>Web Developer & Official Shopify Partner</p>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <p>Web Development<br>Web Design<br>Shopify<br>WordPress</p>
+    </div>
+    <div>
+      <h4>Location</h4>
+      <p>India</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Jananika. All rights reserved.
+  </div>
 </footer>
 
 <script>
-/* Optimized reveal animation */
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.classList.add("show");
-      observer.unobserve(e.target);
+/* ================= SCROLL REVEAL ================= */
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+      observer.unobserve(entry.target);
     }
   });
-},{threshold:.15});
+},{threshold:0.15});
 
-document.querySelectorAll("section").forEach(s=>observer.observe(s));
+document.querySelectorAll(".section, footer, .card").forEach(el=>{
+  observer.observe(el);
+});
 </script>
 
 </body>
