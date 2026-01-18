@@ -1,16 +1,12 @@
-// Smooth section reveal using IntersectionObserver
-const observer = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-        observer.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.15 }
-);
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
 
-document.querySelectorAll(".section").forEach(section => {
+document.querySelectorAll(".section").forEach((section) => {
   observer.observe(section);
 });
